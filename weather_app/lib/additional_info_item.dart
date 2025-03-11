@@ -5,7 +5,7 @@ class AdditionalInfoItem extends StatelessWidget {
 
   final IconData icon;
   final String text;
-  final double value;
+  final String value;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class AdditionalInfoItem extends StatelessWidget {
         const SizedBox(height: 8),
         Text(text, style: TextStyle(fontSize: 16)),
         const SizedBox(height: 8),
-        Text('$value', style: TextStyle(
+        Text(value, style: TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.bold,
         )),

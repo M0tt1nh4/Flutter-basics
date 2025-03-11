@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 
 class HourlyForecastItem extends StatelessWidget {
-  const HourlyForecastItem({super.key});
+  const HourlyForecastItem(
+    this.time,
+    this.date,
+    this.temperature,
+    this.icon,
+    {
+      super.key,
+  });
+
+  final String time;
+  final String date;
+  final String temperature;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
+  dynamic finalDate = date.split('-');
+  finalDate = '${finalDate[2]}/${finalDate[1]}';
     return Card(
       elevation: 6,
       child: Container(
@@ -15,14 +29,17 @@ class HourlyForecastItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-          Text('3:00', style: TextStyle(
+          Text(time, style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
           )),
+          Text(finalDate),
           const SizedBox(height: 8),
-         Icon(Icons.cloud),
+         Icon(icon),
           const SizedBox(height: 8),
-         Text('320.12'),
+         Text(temperature, style: TextStyle(
+          fontSize: 16
+         )),
          ],
         ),
       ),
